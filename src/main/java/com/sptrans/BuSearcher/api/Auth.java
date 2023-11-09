@@ -1,6 +1,7 @@
 package com.sptrans.BuSearcher.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
@@ -9,7 +10,8 @@ import org.springframework.web.client.RestTemplate;
 import java.util.stream.Collectors;
 @Service
 public class Auth {
-    final String base_url = "http://api.olhovivo.sptrans.com.br/v2.1";
+    @Value("${api.url}")
+    private String base_url;
     @Autowired
     RestTemplate restTemplate = new RestTemplate();
     public static HttpEntity<String> entity;
