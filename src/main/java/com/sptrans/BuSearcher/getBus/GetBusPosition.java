@@ -26,8 +26,8 @@ public class GetBusPosition {
     Auth auth = new Auth();
 
     @GetMapping("/posicao")
-    public Posicao getPosicao(@RequestParam int param){
-        String url = apiUrl + "/Posicao/Linha?codigoLinha=" + param;
+    public Posicao getPosicao(){
+        String url = apiUrl + "/Posicao";
         HttpEntity<String> authEntity = auth.authenticate(this.token);
         ResponseEntity<Posicao> response = restTemplate.exchange(url, HttpMethod.GET, authEntity, Posicao.class);
 
